@@ -32,7 +32,7 @@ layers:
   - .
   - {t: /, h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:apple-keyboard-option$$
-  - ''
+  - Device Layer
   - LEFT WIN
   - $$mdi:pan-up$$
   - {t: '$$mdi:keyboard-space$$', h: Number Layer}
@@ -50,7 +50,7 @@ layers:
   - $$mdi:pan-down$$
   - $$mdi:pan-right$$
   Function Layer:
-  - {t: F1, type: held}
+  - F1
   - F2
   - F3
   - F4
@@ -87,7 +87,7 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - $$mdi:pan-up$$
   - ''
   - ''
@@ -228,7 +228,7 @@ layers:
   - ''
   - {t: '$$mdi:backup-restore$$', type: bootloader}
   - $$mdi:progress-download$$
-  - BT CLR ALL
+  - {t: BT CLR ALL, type: held}
   - ''
   - ''
   - ''
@@ -344,5 +344,5 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
-- p: [0, 34]
+- p: [34, 37]
   k: {t: '`', h: Function Layer}

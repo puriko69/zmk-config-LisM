@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 自作キーボード LisMのファームウェアです。  
-DYA Studio対応版は[dya-studio_zmk-v0.4](https://github.com/4mplelab/zmk-config-LisM/tree/dya-studio_zmk-v0.4)ブランチから取得できます。
+このブランチは[DYA Studio](https://studio.dya.cormoran.works/)に対応したブランチです。
 
 ## 生成されるファームウェア一覧
 
@@ -12,27 +12,13 @@ DYA Studio対応版は[dya-studio_zmk-v0.4](https://github.com/4mplelab/zmk-conf
 | `lism_left_peripheral_non_trackball.uf2`      | 左側 ペリフェラル 非トラックボール     |
 | `lism_left_peripheral_4waystick.uf2`          | 左側 ペリフェラル 4wayスティック       |
 | `lism_left_peripheral_trackball.uf2`          | 左側 ペリフェラル トラックボール       |
-| `lism_right_central_non_trackball.uf2`        | 右側 セントラル 非トラックボール       |
-| `lism_right_central_4waystick.uf2`            | 右側 セントラル 4wayスティック       |
-| `lism_right_central_trackball.uf2`            | 右側 セントラル トラックボール         |
-| `lism_right_central_non_trackball_studio.uf2` | 右側 セントラル 非トラックボール (ZMK Studio / DYA Studio 対応) |
-| `lism_right_central_4waystick_studio.uf2` | 右側 セントラル 4wayスティック (ZMK Studio / DYA Studio 対応) |
-| `lism_right_central_trackball_studio.uf2`     | 右側 セントラル トラックボール (ZMK Studio / DYA Studio 対応)   |
+| `lism_right_central_non_trackball.uf2`        | 右側 セントラル 非トラックボール |
+| `lism_right_central_4waystick.uf2`            | 右側 セントラル 4wayスティック |
+| `lism_right_central_trackball.uf2`            | 右側 セントラル トラックボール |
 | `settings_reset-seeeduino_xiao_ble-zmk.uf2`   | 設定リセット用                        |
 
-### DYA Studioでキーマップを編集する
-
-`*_studio.uf2` は、公式ZMK Studio互換のDYA Studioキーマップ編集機能に対応しています。
-
-1. 使用する構成の `lism_right_central_*_studio.uf2` を右側へ書き込みます。
-2. 左側には対応する `lism_left_peripheral_*.uf2` を書き込みます。
-3. ChromeまたはEdgeで [DYA Studio](https://studio.dya.cormoran.works/) を開き、右側をUSB接続します。
-4. Default Layerの `R3 C1` を押しながら、Device Layerの `R3 C7`（Studio Unlock）を押します。
-5. DYA Studioから接続し、キーマップを編集します。
-
-マクロ、コンボ、トラックボール設定などDYA Studio固有の拡張機能には、専用ブランチ `dya-studio_zmk-v0.4` を使用してください。
-
-## ローカルビルド手順
+<details>
+<summary>古い手順 (ローカルビルド)</summary>
 
 GitHub Actionsでのビルドは毎回2分-3分かかりますが、ローカル環境では40秒〜1分で完了します。(PCスペックによって前後します)  
 キーマップの変更など、少し試したいだけでも時間がかかるActionsに比べ、ローカルビルドなら素早く試行錯誤ができます。
@@ -58,6 +44,11 @@ GitHub Actionsでのビルドは毎回2分-3分かかりますが、ローカル
     > ビルドはCPUコアを最大限に活用して並列実行できます。  
     > 特に多くのファームウェアを一度にビルドする際に効果的です。  
     > 並列数は自動でCPUコア数に設定されますが、環境変数 `PARALLEL` で指定することも可能です（例: `PARALLEL=4 make all_p`）。
+
+    > [!NOTE]
+    > このブランチのcentral向けファームウェアはすべて最初からDYA Studio対応(`studio-rpc-usb-uart`)を含んでいるため、
+    > `make` / `make all_p`（ZMK Studioサポートなし想定）と `make all_studio` / `make all_studio_p`（あり想定）は
+    > このブランチでは同じ7ファームウェアを生成します（`build.yaml`のartifact-nameに`studio`を含む個別エントリが無いため）。
 
     - **すべてのファームウェアを並列で一度に作成する場合(ZMK Studioサポートなし):**
       ```bash
@@ -116,9 +107,6 @@ GitHub Actionsでのビルドは毎回2分-3分かかりますが、ローカル
     更新が完了したら、上記「ビルド（ファームウェア作成）」の手順でファームウェアを再作成してください。
 
 <br>
-
-<details>
-<summary>技術的な詳細情報</summary>
 
 ### 概要
 このリポジトリは、ZMKユーザー設定のローカルビルド環境を提供します。  

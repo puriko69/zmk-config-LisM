@@ -2,9 +2,9 @@ name: Build ZMK firmware
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ dya-studio_zmk-v0.4 ]
     tags-ignore:
-      - 'v*' # リリース用タグはrelease.yml側でビルドするので重複を避ける
+      - 'v*-dya*' # リリース用タグはrelease.yml側でビルドするので重複を避ける
     paths:
       - '.github/workflows/build.yml'
       - 'boards/**'

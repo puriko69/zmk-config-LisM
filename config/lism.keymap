@@ -55,7 +55,7 @@
             bindings = <&lt 1 JP_HANZEN>;
         };
     };
-    
+
     macros {
         emoji: emoji_macro {
             compatible = "zmk,behavior-macro";

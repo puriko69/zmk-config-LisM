@@ -8,11 +8,15 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: 4mplelab
       url-base: https://github.com/4mplelab
+    - name: cormoran
+      url-base: https://github.com/cormoran
+    - name: zettaface
+      url-base: https://github.com/zettaface
   projects:
     - name: zmk
-      remote: zmkfirmware
-      # main branch @ 2026-08-06 (Zephyr v4.1.0+zmk-fixes)
-      revision: 268b1b1e82150460f00fd701bcd08583d5c75d29
+      remote: cormoran
+      # main+dya branch @ 2026-07-25 (Zephyr v4.1.0+zmk-fixes)
+      revision: e5c9b6915b56801193e359dd9bad4a167ce0d1b8
       import: app/west.yml
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc
@@ -24,5 +28,52 @@ manifest:
     - name: zmk-feature-charge-indicator
       remote: 4mplelab
       revision: main
+
+    - name: zmk-module-ble-management
+      remote: cormoran
+      # main @ 2026-07-05 (zmk-v0.4.0.0 tag not published yet for this module)
+      revision: 57738cc4fc6ba80e82a7ac57741a0339cb186cd4
+    - name: zmk-module-battery-history
+      remote: cormoran
+      # main @ 2026-02-24 (no tags published for this module)
+      revision: 307755dd2ad4d320e14de162e8e5ef018f29d929
+    - name: zmk-module-settings-rpc
+      remote: cormoran
+      # main @ 2026-07-06 (zmk-v0.4.0.0 tag not published yet for this module)
+      revision: 78f86df9e6c5edaf57bef3ccbd7f360cfdf49291
+    - name: zmk-module-runtime-input-processor
+      remote: cormoran
+      revision: zmk-v0.4.0.0
+    - name: zmk-behavior-runtime-sensor-rotate
+      remote: cormoran
+      # main @ 2026-07-05 (zmk-v0.4.0.0 tag not published yet for this module)
+      revision: 8b1125ed676c1f5e14145d217984f33d0ebdcef4
+    - name: zmk-input-processor-keybind
+      remote: zettaface
+      revision: 64303bd3932bfa7f49261fc6d0c9a3fdd06f8271
+
+    - name: zmk-feature-device-info
+      remote: cormoran
+      revision: 8cedd2dd9f04e19ea5a17b94914dd47a09d8db11
+    - name: zmk-feature-runtime-combo
+      remote: cormoran
+      revision: d9490e7b5d41c516221d131241009e81740efcee
+      import: true
+    - name: zmk-feature-runtime-macro
+      remote: cormoran
+      revision: 38530962eb7061b60efcb98e84585cfb1f0cb6de
+      import: true
+    - name: zmk-feature-watchdog
+      remote: cormoran
+      revision: 84ad14c6c3645dc40b23f45d08ab45418655f912
+    - name: zmk-feature-kscan-diagnostics
+      remote: cormoran
+      revision: 1432f7fe0cfe903cd7d3c9931ae6bd6f2e1f328e
+    - name: zmk-feature-default-layer
+      remote: cormoran
+      revision: 92728246f80d327709839b2dbf5cf11880ff87e1
+    - name: zmk-feature-fast-keymap
+      remote: cormoran
+      revision: 8dac76de0ba38588ba39ca498910e24f8332bc6b
   self:
     path: config

@@ -15,10 +15,22 @@ DYA Studio対応版は[dya-studio_zmk-v0.4](https://github.com/4mplelab/zmk-conf
 | `lism_right_central_non_trackball.uf2`        | 右側 セントラル 非トラックボール       |
 | `lism_right_central_4waystick.uf2`            | 右側 セントラル 4wayスティック       |
 | `lism_right_central_trackball.uf2`            | 右側 セントラル トラックボール         |
-| `lism_right_central_non_trackball_studio.uf2` | 右側 セントラル 非トラックボール (ZMK Studio 対応) |
-| `lism_right_central_4waystick_studio.uf2` | 右側 セントラル 4wayスティック (ZMK Studio 対応) |
-| `lism_right_central_trackball_studio.uf2`     | 右側 セントラル トラックボール (ZMK Studio 対応)   |
+| `lism_right_central_non_trackball_studio.uf2` | 右側 セントラル 非トラックボール (ZMK Studio / DYA Studio 対応) |
+| `lism_right_central_4waystick_studio.uf2` | 右側 セントラル 4wayスティック (ZMK Studio / DYA Studio 対応) |
+| `lism_right_central_trackball_studio.uf2`     | 右側 セントラル トラックボール (ZMK Studio / DYA Studio 対応)   |
 | `settings_reset-seeeduino_xiao_ble-zmk.uf2`   | 設定リセット用                        |
+
+### DYA Studioでキーマップを編集する
+
+`*_studio.uf2` は、公式ZMK Studio互換のDYA Studioキーマップ編集機能に対応しています。
+
+1. 使用する構成の `lism_right_central_*_studio.uf2` を右側へ書き込みます。
+2. 左側には対応する `lism_left_peripheral_*.uf2` を書き込みます。
+3. ChromeまたはEdgeで [DYA Studio](https://studio.dya.cormoran.works/) を開き、右側をUSB接続します。
+4. Default Layerの `R3 C1` を押しながら、Device Layerの `R3 C7`（Studio Unlock）を押します。
+5. DYA Studioから接続し、キーマップを編集します。
+
+マクロ、コンボ、トラックボール設定などDYA Studio固有の拡張機能には、専用ブランチ `dya-studio_zmk-v0.4` を使用してください。
 
 ## ローカルビルド手順
 

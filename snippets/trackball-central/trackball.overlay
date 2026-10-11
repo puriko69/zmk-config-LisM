@@ -7,6 +7,10 @@
 };
 
 &zip_keybind_keys {
+    bindings = <&kp RIGHT>,
+               <&kp LEFT>,
+               <&kp UP>,
+               <&kp DOWN>;
     mode = <1>;
     threshold = <1>;
     tick = <40>;

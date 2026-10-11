@@ -1,7 +1,19 @@
+#include <input/processors/zmk-input-processor-keybind.dtsi>
+
 / {
     chosen {
         zmk,kscan = &kscan1;
     };
+};
+
+&zip_keybind_keys {
+    mode = <1>;
+    threshold = <1>;
+    tick = <40>;
+    wait-ms = <0>;
+    tap-ms = <10>;
+    max_pending_activations = <5>;
+    track_remainders;
 };
 
 &spi0 {
@@ -19,6 +31,7 @@
 // ペリフェラル（split経由）のリスナーを有効化
 &peripheral_listener {
     status = "okay";
+    input-processors = <&zip_keybind_keys>;
 };
 
 // セントラルのリスナーを有効化し、deviceを紐付け

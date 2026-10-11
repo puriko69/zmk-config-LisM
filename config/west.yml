@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/4mplelab
     - name: cormoran
       url-base: https://github.com/cormoran
+    - name: zettaface
+      url-base: https://github.com/zettaface
   projects:
     - name: zmk
       remote: cormoran
@@ -46,6 +48,9 @@ manifest:
       remote: cormoran
       # main @ 2026-07-05 (zmk-v0.4.0.0 tag not published yet for this module)
       revision: 8b1125ed676c1f5e14145d217984f33d0ebdcef4
+    - name: zmk-input-processor-keybind
+      remote: zettaface
+      revision: 64303bd3932bfa7f49261fc6d0c9a3fdd06f8271
 
     - name: zmk-feature-device-info
       remote: cormoran
